@@ -2,8 +2,8 @@
 
 namespace AvtoDev\FirebaseNotificationsChannel\Tests;
 
-use AvtoDev\FirebaseNotificationsChannel\LaravelPackageServiceProvider;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use AvtoDev\FirebaseNotificationsChannel\LaravelPackageServiceProvider;
 
 abstract class AbstractTestCase extends BaseTestCase
 {
