@@ -259,7 +259,7 @@ If you discover any security related issues, please email `jetexe2@gmail.com` in
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+This is open-sourced software licensed under the [MIT License][link_license].
 
 [badge_packagist_version]:https://img.shields.io/packagist/v/avto-dev/firebase-notifications-laravel.svg?maxAge=180
 [badge_php_version]:https://img.shields.io/packagist/php-v/avto-dev/firebase-notifications-laravel.svg?longCache=true
