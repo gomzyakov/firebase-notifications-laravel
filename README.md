@@ -1,11 +1,8 @@
-
 <p align="center">
   <img src="https://laravel.com/assets/img/components/logo-laravel.svg" alt="Laravel" width="240" />
 </p>
 
-Here's the latest documentation on Laravel Notifications System:
-
-https://laravel.com/docs/master/notifications
+> Here's the latest documentation on Laravel Notifications System: https://laravel.com/docs/master/notifications
 
 # FirebaseNotificationsChannel for Laravel applications
 
@@ -76,7 +73,7 @@ If you wants to disable package service-provider auto discover, just add into yo
 
 ### Setting up the Firebase service
 
-You need to set up firebase channel in config file `config/services.conf`.
+You need to set up firebase channel in config file `./config/services.php`.
 
 **To generate a private key file for your service account:**
 
@@ -84,7 +81,7 @@ You need to set up firebase channel in config file `config/services.conf`.
 1. Click **Generate New Private Key**, then confirm by clicking **Generate Key**.
 1. Securely store the JSON file containing the key. You'll need this JSON file to complete the next step.
 
-Next select the "driver" `file` or `config` contains credintails for [Firebase service account][firebase_service_account] in `./config/service.conf`:
+Next select the "driver" `file` or `config` contains credintails for [Firebase service account][firebase_service_account] in `./config/services.php`:
 
 ```php
 <?php
@@ -228,7 +225,11 @@ Field     | Type
 
 ## Testing
 
+For package testing we use `phpunit` framework. Just write into your terminal _(installed `docker-ce` is required)_:
+
 ``` bash
+$ git clone git@github.com:avto-dev/firebase-notifications-laravel.git ./firebase-notifications-laravel && cd $_
+$ make install
 $ make test
 ```
 
