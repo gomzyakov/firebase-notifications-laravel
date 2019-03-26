@@ -132,6 +132,15 @@ class AppleFcmPlatformSettings implements Arrayable
     protected $launch_image;
 
     /**
+     * Allow to modify payload on iOS 10+ devices.
+     *
+     * @see https://developer.apple.com/documentation/usernotifications/unnotificationserviceextension
+     *
+     * @var bool
+     */
+    protected $mutable_content;
+
+    /**
      * HTTP request headers defined in Apple Push Notification Service.
      * Refer to APNs request headers for supported headers, e.g. "apns-priority": "10".
      *
@@ -293,6 +302,11 @@ class AppleFcmPlatformSettings implements Arrayable
         $this->launch_image = $launch_image;
     }
 
+    public function setMutableContent(bool $mutable_content)
+    {
+        $this->mutable_content = $mutable_content;
+    }
+
     /**
      * Build an array.
      *
@@ -318,6 +332,7 @@ class AppleFcmPlatformSettings implements Arrayable
                 'content-available' => $this->content_available,
                 'category'          => $this->category,
                 'thread-id'         => $this->thread_id,
+                'mutable-content'   => (int) $this->mutable_content,
             ],
         ];
     }

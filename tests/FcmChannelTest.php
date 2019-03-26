@@ -8,6 +8,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use AvtoDev\FirebaseNotificationsChannel\FcmClient;
 use AvtoDev\FirebaseNotificationsChannel\FcmChannel;
 use AvtoDev\FirebaseNotificationsChannel\FcmMessage;
@@ -56,7 +57,8 @@ class FcmChannelTest extends AbstractTestCase
     {
         $response = new Response(200, [], \json_encode(['message_id' => 'test']));
         $this->mock_handler->append($response);
-
+        $notification = new class extends Notification implements ShouldQueue {
+        };
         $this->firebase_channel->send($this->getNotifiableMock(), $this->getNotificationMock());
     }
 

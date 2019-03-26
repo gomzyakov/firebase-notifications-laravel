@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v1.1.0
+
+### Added
+
+- Enable support of `mutable-content` for iOS 10+ devices
+
+### Fixed
+
+- Passthrough notifible to message
+
 ## v1.0.1
 
 ### Fixed
