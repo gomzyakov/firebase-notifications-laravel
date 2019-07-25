@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\FirebaseNotificationsChannel\Tests\Receivers;
 
 use AvtoDev\FirebaseNotificationsChannel\Receivers\FcmDeviceReceiver;
@@ -19,9 +21,9 @@ class FcmDeviceReceiverTest extends AbstractReceiverTest
      *
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
-    public function testGetTarget()
+    public function testGetTarget(): void
     {
-        static::assertEquals($this->target_value, $this->getReceiver()->getToken());
+        $this->assertEquals($this->target_value, $this->getReceiver()->getToken());
     }
 
     /**

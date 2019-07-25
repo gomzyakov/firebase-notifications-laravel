@@ -4,26 +4,30 @@ declare(strict_types = 1);
 
 namespace AvtoDev\FirebaseNotificationsChannel;
 
+use Google_Client;
 use GuzzleHttp\Client;
 use Tarampampam\Wrappers\Json;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Tarampampam\Wrappers\Exceptions\JsonEncodeDecodeException;
 
-class FcmServiceProvider extends ServiceProvider
+class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Register the package services.
+     *
+     * @return void
      */
-    public function boot()
+    public function register(): void
     {
-        $this->app->when(FcmChannel::class)
+        $this->app
+            ->when(FcmChannel::class)
             ->needs(FcmClient::class)
-            ->give(function (Application $app) {
+            ->give(function (Container $app) {
                 $credentials = $this->getCredentials($app);
 
-                //Build google client
-                $google_client = new \Google_Client;
+                /** @var Google_Client $google_client */
+                $google_client = $app->make(Google_Client::class);
                 $google_client->setAuthConfig($credentials);
                 $google_client->addScope('https://www.googleapis.com/auth/firebase.messaging');
 
@@ -40,15 +44,16 @@ class FcmServiceProvider extends ServiceProvider
     /**
      * Get Fcm credentials.
      *
-     * @param Application $app
+     * @param Container $app
      *
+     * @throws JsonEncodeDecodeException
+     * @throws BindingResolutionException
      * @throws \InvalidArgumentException
      * @throws \LogicException
-     * @throws JsonEncodeDecodeException
      *
      * @return array
      */
-    protected function getCredentials(Application $app): array
+    protected function getCredentials(Container $app): array
     {
         /** @var \Illuminate\Config\Repository $config */
         $config        = $app->make('config');
@@ -61,9 +66,9 @@ class FcmServiceProvider extends ServiceProvider
                 throw new \InvalidArgumentException('file does not exist');
             }
 
-            $credentials = Json::decode((string) \file_get_contents($credentials_path));
+            $credentials = (array) Json::decode((string) \file_get_contents($credentials_path));
         } elseif ($config_driver === 'config') {
-            $credentials = $config->get('services.fcm.drivers.config.credentials', []);
+            $credentials = (array) $config->get('services.fcm.drivers.config.credentials', []);
         } else {
             throw new \InvalidArgumentException('Fcm driver not set');
         }

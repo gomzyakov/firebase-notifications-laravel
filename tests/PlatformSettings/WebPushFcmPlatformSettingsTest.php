@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\FirebaseNotificationsChannel\Tests\PlatformSettings;
 
 use AvtoDev\FirebaseNotificationsChannel\PlatformSettings\WebpushFcmPlatformSettings;
 
 /**
- * @coversDefaultClass \AvtoDev\FirebaseNotificationsChannel\PlatformSettings\WebpushFcmPlatformSettings
+ * @covers \AvtoDev\FirebaseNotificationsChannel\PlatformSettings\WebpushFcmPlatformSettings
  */
 class WebPushFcmPlatformSettingsTest extends AbstractPlatformSettingsTest
 {
     /**
-     * @return array
+     * @return array[]
      */
-    public function dataProvider()
+    public function dataProvider(): array
     {
         return [
             ['headers', 'headers', ['test_header', 'test_header2']],

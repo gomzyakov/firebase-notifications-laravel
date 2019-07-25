@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\FirebaseNotificationsChannel\Tests\PlatformSettings;
 
 use AvtoDev\FirebaseNotificationsChannel\PlatformSettings\AndroidFcmPlatformSettings;
 
 /**
- * @coversDefaultClass \AvtoDev\FirebaseNotificationsChannel\PlatformSettings\AndroidFcmPlatformSettings
+ * @covers \AvtoDev\FirebaseNotificationsChannel\PlatformSettings\AndroidFcmPlatformSettings
  */
 class AndroidFcmPlatformSettingsTest extends AbstractPlatformSettingsTest
 {
     /**
-     * @return array
+     * @return array[]
      */
-    public function dataProvider()
+    public function dataProvider(): array
     {
         return [
             ['collapse_key', 'collapse_key', 'collapse_key_test'],

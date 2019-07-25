@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\FirebaseNotificationsChannel\Tests;
 
 use Illuminate\Support\Arr;
@@ -25,7 +27,7 @@ class FcmMessageTest extends AbstractTestCase
     /**
      * {@inheritdoc}
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -35,12 +37,12 @@ class FcmMessageTest extends AbstractTestCase
     public function dataProvider()
     {
         return [
-            ['data', ['key' => 'value']],
+            ['data', ['key' => 'value'], null],
             ['title', 'title text', 'notification.title'],
             ['body', 'body text', 'notification.body'],
-            ['android', new AndroidFcmPlatformSettings],
-            ['webpush', new WebpushFcmPlatformSettings],
-            ['apns', new AppleFcmPlatformSettings],
+            ['android', new AndroidFcmPlatformSettings, null],
+            ['webpush', new WebpushFcmPlatformSettings, null],
+            ['apns', new AppleFcmPlatformSettings, null],
         ];
     }
 
@@ -49,26 +51,25 @@ class FcmMessageTest extends AbstractTestCase
      * @param $value
      * @param $path
      *
-     * @throws \ReflectionException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     *
-     * @dataProvider dataProvider
      */
-    public function testSetters($property, $value, $path = null)
+    public function testSetters()
     {
-        $this->fcm_message->{'set' . Str::title($property)}($value);
+        foreach ($this->dataProvider() as [$property, $value, $path]) {
+            $this->fcm_message->{'set' . Str::title($property)}($value);
 
-        static::assertEquals($value, static::getProperty($this->fcm_message, $property));
+            $this->assertEquals($value, $this->fcm_message->{'get' . Str::title($property)}());
 
-        if ($path === null) {
-            $path = $property;
+            if ($path === null) {
+                $path = $property;
+            }
+
+            if ($value instanceof Arrayable) {
+                $this->assertEquals($value, $this->fcm_message->{'get' . Str::title($property)}());
+                $value = $value->toArray();
+            }
+
+            $this->assertEquals($value, Arr::get($this->fcm_message->toArray(), $path));
         }
-
-        if ($value instanceof Arrayable) {
-            static::assertEquals($value, $this->fcm_message->{'get' . Str::title($property)}());
-            $value = $value->toArray();
-        }
-
-        static::assertEquals($value, Arr::get($this->fcm_message->toArray(), $path));
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace AvtoDev\FirebaseNotificationsChannel\Tests\Receivers;
 
 use AvtoDev\FirebaseNotificationsChannel\Tests\AbstractTestCase;
@@ -13,23 +15,13 @@ abstract class AbstractReceiverTest extends AbstractTestCase
 
     /**
      * @covers ::__construct
-     *
-     * @throws \ReflectionException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
-     */
-    public function testGetConstruct()
-    {
-        static::assertEquals($this->target_value, self::getProperty($this->getReceiver(), $this->target_name));
-    }
-
-    /**
      * @covers ::getTarget()
      *
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
-    public function testGetTargetArray()
+    public function testGetTargetArray(): void
     {
-        static::assertEquals([$this->target_name => $this->target_value], $this->getReceiver()->getTarget());
+        $this->assertEquals([$this->target_name => $this->target_value], $this->getReceiver()->getTarget());
     }
 
     /**
