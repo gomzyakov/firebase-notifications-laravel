@@ -9,10 +9,14 @@ use Illuminate\Contracts\Support\Arrayable;
 class AndroidFcmPlatformSettings implements Arrayable
 {
     /**
-     * Priority settings.
+     * High priority.
      */
-    const PRIORITY_HIGH   = 'HIGH';
-    const PRIORITY_NORMAL = 'NORMAL';
+    public const PRIORITY_HIGH   = 'HIGH';
+
+    /**
+     * Normal priority.
+     */
+    public const PRIORITY_NORMAL = 'NORMAL';
 
     /**
      * An identifier of a group of messages that can be collapsed,
@@ -48,7 +52,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      * Arbitrary key/value payload. If present, it will override google.firebase.fcm.v1.Message.data.
      * An object containing a list of "key": value pairs.
      *
-     * @var array
+     * @var array<string, mixed>
      */
     protected $data;
 
@@ -121,7 +125,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      * Variable string values to be used in place of the format specifiers in body_loc_key to use to localize the body
      * text to the user's current localization.
      *
-     * @var string[]
+     * @var array<string>
      */
     protected $body_loc_args;
 
@@ -137,7 +141,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      * Variable string values to be used in place of the format specifiers in title_loc_key to use to localize the
      * title text to the user's current localization.
      *
-     * @var string[]
+     * @var array<string>
      */
     protected $title_loc_args;
 
@@ -157,7 +161,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $collapse_key
      */
-    public function setCollapseKey(string $collapse_key)
+    public function setCollapseKey(string $collapse_key): void
     {
         $this->collapse_key = $collapse_key;
     }
@@ -167,7 +171,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $priority
      */
-    public function setPriority(string $priority)
+    public function setPriority(string $priority): void
     {
         $this->priority = $priority;
     }
@@ -177,7 +181,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $ttl
      */
-    public function setTtl(string $ttl)
+    public function setTtl(string $ttl): void
     {
         $this->ttl = $ttl;
     }
@@ -187,7 +191,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $restricted_package_name
      */
-    public function setRestrictedPackageName(string $restricted_package_name)
+    public function setRestrictedPackageName(string $restricted_package_name): void
     {
         $this->restricted_package_name = $restricted_package_name;
     }
@@ -196,9 +200,9 @@ class AndroidFcmPlatformSettings implements Arrayable
      * Arbitrary key/value payload. If present, it will override google.firebase.fcm.v1.Message.data.
      * An object containing a list of "key": value pairs.
      *
-     * @param array $data
+     * @param array<string, mixed> $data
      */
-    public function setData(array $data)
+    public function setData(array $data): void
     {
         $this->data = $data;
     }
@@ -208,7 +212,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $title
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
@@ -218,7 +222,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $body
      */
-    public function setBody(string $body)
+    public function setBody(string $body): void
     {
         $this->body = $body;
     }
@@ -230,7 +234,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $icon
      */
-    public function setIcon(string $icon)
+    public function setIcon(string $icon): void
     {
         $this->icon = $icon;
     }
@@ -240,7 +244,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $color
      */
-    public function setColor(string $color)
+    public function setColor(string $color): void
     {
         $this->color = $color;
     }
@@ -252,7 +256,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $sound
      */
-    public function setSound(string $sound)
+    public function setSound(string $sound): void
     {
         $this->sound = $sound;
     }
@@ -265,7 +269,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $tag
      */
-    public function setTag(string $tag)
+    public function setTag(string $tag): void
     {
         $this->tag = $tag;
     }
@@ -276,7 +280,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $click_action
      */
-    public function setClickAction(string $click_action)
+    public function setClickAction(string $click_action): void
     {
         $this->click_action = $click_action;
     }
@@ -287,7 +291,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $body_loc_key
      */
-    public function setBodyLocKey(string $body_loc_key)
+    public function setBodyLocKey(string $body_loc_key): void
     {
         $this->body_loc_key = $body_loc_key;
     }
@@ -296,9 +300,9 @@ class AndroidFcmPlatformSettings implements Arrayable
      * Variable string values to be used in place of the format specifiers in body_loc_key to use to localize the body
      * text to the user's current localization.
      *
-     * @param string[] $body_loc_args
+     * @param array<string> $body_loc_args
      */
-    public function setBodyLocArgs(array $body_loc_args)
+    public function setBodyLocArgs(array $body_loc_args): void
     {
         $this->body_loc_args = $body_loc_args;
     }
@@ -309,7 +313,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $title_loc_key
      */
-    public function setTitleLocKey(string $title_loc_key)
+    public function setTitleLocKey(string $title_loc_key): void
     {
         $this->title_loc_key = $title_loc_key;
     }
@@ -318,9 +322,9 @@ class AndroidFcmPlatformSettings implements Arrayable
      * Variable string values to be used in place of the format specifiers in title_loc_key to use to localize the
      * title text to the user's current localization.
      *
-     * @param string[] $title_loc_args
+     * @param array<string> $title_loc_args
      */
-    public function setTitleLocArgs(array $title_loc_args)
+    public function setTitleLocArgs(array $title_loc_args): void
     {
         $this->title_loc_args = $title_loc_args;
     }
@@ -332,7 +336,7 @@ class AndroidFcmPlatformSettings implements Arrayable
      *
      * @param string $channel_id
      */
-    public function setChannelId(string $channel_id)
+    public function setChannelId(string $channel_id): void
     {
         $this->channel_id = $channel_id;
     }
@@ -340,7 +344,7 @@ class AndroidFcmPlatformSettings implements Arrayable
     /**
      * Build an array.
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function toArray(): array
     {

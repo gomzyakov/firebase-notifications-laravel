@@ -13,8 +13,6 @@ use AvtoDev\FirebaseNotificationsChannel\PlatformSettings\AndroidFcmPlatformSett
 use AvtoDev\FirebaseNotificationsChannel\PlatformSettings\WebpushFcmPlatformSettings;
 
 /**
- * Class FcmMessageTest.
- *
  * @covers \AvtoDev\FirebaseNotificationsChannel\FcmMessage
  */
 class FcmMessageTest extends AbstractTestCase
@@ -47,11 +45,7 @@ class FcmMessageTest extends AbstractTestCase
     }
 
     /**
-     * @param $property
-     * @param $value
-     * @param $path
-     *
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @return void
      */
     public function testSetters()
     {

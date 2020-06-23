@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog][keepachangelog] and this project adheres to [Semantic Versioning][semver].
 
+## v2.2.0
+
+### Changed
+
+- Maximal `illuminate/*` packages version now is `7.*`
+- CI completely moved from "Travis CI" to "Github Actions" _(travis builds disabled)_
+- Minimal required PHP version now is `7.2`
+- Updated PHPDoc annotations
+- Minimal `phpunit/phpunit` version now is `~7.2` (reason - class `PHPUnit\Framework\MockObject\MockObject`)
+- Class `AvtoDev\FirebaseNotificationsChannel\Exceptions\CouldNotSendNotification` finalized
+- Method `AvtoDev\FirebaseNotificationsChannel\FcmChannel::send` now returns `void`
+- Methods in `AvtoDev\FirebaseNotificationsChannel\PlatformSettings\*::set*` now returns `void`
+
+### Added
+
+- PHP 7.4 is supported now
+
+### Fixed
+
+- Some documentation errors
+
 ## v2.1.0
 
 ### Changed

@@ -10,6 +10,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
+use PHPUnit\Framework\MockObject\MockObject;
 use AvtoDev\FirebaseNotificationsChannel\FcmClient;
 use AvtoDev\FirebaseNotificationsChannel\FcmChannel;
 use AvtoDev\FirebaseNotificationsChannel\FcmMessage;
@@ -66,9 +67,6 @@ class FcmChannelTest extends AbstractTestCase
      * Success notification sending.
      *
      * @covers ::send()
-     *
-     * @throws \InvalidArgumentException
-     * @throws CouldNotSendNotification
      */
     public function testSendSuccess(): void
     {
@@ -82,8 +80,6 @@ class FcmChannelTest extends AbstractTestCase
      * Check notification without "toFcm" method.
      *
      * @covers ::send()
-     *
-     * @throws CouldNotSendNotification
      */
     public function testSendNoToFcm(): void
     {
@@ -100,9 +96,6 @@ class FcmChannelTest extends AbstractTestCase
 
     /**
      * @covers ::send()
-     *
-     * @throws CouldNotSendNotification
-     * @throws \InvalidArgumentException
      */
     public function testSendFailed(): void
     {
@@ -116,10 +109,6 @@ class FcmChannelTest extends AbstractTestCase
 
     /**
      * @covers ::send()
-     *
-     * @throws CouldNotSendNotification
-     * @throws \InvalidArgumentException
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public function testNoSend(): void
     {
@@ -151,7 +140,7 @@ class FcmChannelTest extends AbstractTestCase
     }
 
     /**
-     * @return Notification
+     * @return MockObject|Notifiable
      */
     protected function getNotificationMock()
     {
@@ -171,7 +160,7 @@ class FcmChannelTest extends AbstractTestCase
     }
 
     /**
-     * @return Notifiable
+     * @return MockObject|Notifiable
      */
     protected function getNotifiableMock()
     {
