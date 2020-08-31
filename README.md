@@ -258,7 +258,7 @@ This is open-sourced software licensed under the [MIT License][link_license].
 
 [link_releases]:https://github.com/avto-dev/firebase-notifications-laravel/releases
 [link_packagist]:https://packagist.org/packages/avto-dev/firebase-notifications-laravel
-[link_build_status]:https://travis-ci.org/avto-dev/firebase-notifications-laravel
+[link_build_status]:https://github.com/avto-dev/firebase-notifications-laravel/actions
 [link_coverage]:https://codecov.io/gh/avto-dev/firebase-notifications-laravel/
 [link_changes_log]:https://github.com/avto-dev/firebase-notifications-laravel/blob/master/CHANGELOG.md
 [link_issues]:https://github.com/avto-dev/firebase-notifications-laravel/issues
