@@ -8,15 +8,13 @@ The format is based on [Keep a Changelog][keepachangelog] and this project adher
 
 ### Added
 
-- Support Laravel `10.x`
+- Support Laravel 10
 
 ### Changed
 
-- Up minimal required `PHP` version to `8.1`
-- Up minimal `psr/log` version `3.0`
-- Up minimal `monolog/monolog` version `3.0`
-- Up minimal `phpstan` version to `1.10`
+- Up minimal `PHP` version to `8.1`
 - Up minimal `phpunit` version `10.0`
+- Up minimal `phpstan` version to `1.10`
 
 ## v2.6.0
 
