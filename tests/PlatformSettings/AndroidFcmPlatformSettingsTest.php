@@ -9,7 +9,7 @@ use AvtoDev\FirebaseNotificationsChannel\PlatformSettings\AndroidFcmPlatformSett
 /**
  * @covers \AvtoDev\FirebaseNotificationsChannel\PlatformSettings\AndroidFcmPlatformSettings
  */
-class AndroidFcmPlatformSettingsTestCase extends AbstractPlatformSettingsTestCase
+class AndroidFcmPlatformSettingsTest extends AbstractPlatformSettingsTestCase
 {
     /**
      * @return array<array<string>>

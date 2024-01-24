@@ -10,7 +10,7 @@ use AvtoDev\FirebaseNotificationsChannel\Receivers\FcmNotificationReceiverInterf
 /**
  * @coversDefaultClass \AvtoDev\FirebaseNotificationsChannel\Receivers\FcmDeviceReceiver
  */
-class FcmDeviceReceiverTestCase extends AbstractReceiverTestCase
+class FcmDeviceReceiverTest extends AbstractReceiverTestCase
 {
     /**
      * @var string

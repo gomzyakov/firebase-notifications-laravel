@@ -9,14 +9,13 @@ use AvtoDev\FirebaseNotificationsChannel\PlatformSettings\AppleFcmPlatformSettin
 /**
  * @covers \AvtoDev\FirebaseNotificationsChannel\PlatformSettings\AppleFcmPlatformSettings
  */
-class AppleFcmPlatformSettingsTestCase extends AbstractPlatformSettingsTestCase
+class AppleFcmPlatformSettingsTest extends AbstractPlatformSettingsTestCase
 {
     /**
      * @return array<array<string>>
      */
     public function dataProvider(): array
     {
-        dump('ccc');
         return [
             ['headers', 'headers', ['test_header', 'test_header2']],
             ['title', 'payload.aps.alert.title', 'title_test'],
