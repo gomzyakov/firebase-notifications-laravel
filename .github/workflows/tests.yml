@@ -12,14 +12,13 @@ on:
 
 jobs: # Docs: <https://git.io/JvxXE>
   php:
-    name: PHP ${{ matrix.php }}, ${{ matrix.setup }} setup, laravel ${{ matrix.laravel }}
+    name: PHP ${{ matrix.php }}, ${{ matrix.setup }} setup
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
         setup: [basic, lowest]
-        laravel: [default]
         coverage: [yes]
         php: ['8.1','8.2','8.3']
     steps:
@@ -50,13 +49,6 @@ jobs: # Docs: <https://git.io/JvxXE>
       - name: Install basic Composer dependencies
         if: matrix.setup == 'basic'
         run: composer update --prefer-dist --ansi
-
-      - name: Install specific laravel version
-        if: matrix.laravel != 'default'
-        run: composer require --dev --update-with-all-dependencies --prefer-dist --ansi laravel/laravel "${{ matrix.laravel }}"
-
-      - name: Show most important packages versions
-        run: composer info | grep -e laravel -e phpunit -e phpstan
 
       - name: Execute tests
         if: matrix.coverage != 'yes'
